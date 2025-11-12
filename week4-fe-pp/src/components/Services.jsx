@@ -5,16 +5,24 @@ import Service from './Service'
 
 const Services = () => {
   const [servicesData, setServicesData] = useState(services);
+  const hideService = (id) => {
+    setServicesData(servicesData.filter((service)=>service.id !== id))
+  }
   return (
     <section className='section services' id='services'>
       <Title title='our' subTitle='services' />
 
       <div className='section-center services-center'>
-        {servicesData.map((service) => {
-          return <Service {...service} key={service.id} />
-        })}
+        {servicesData.map((service) => (
+          <div key={service.id} className='service-item'>
+            <Service {...service}/>
+            <button className='btn delete-button'
+            onClick={() => hideService(service.id)}>Delete</button>
+          </div>
+        ))}
       </div>
     </section>
   )
 }
 export default Services;
+
