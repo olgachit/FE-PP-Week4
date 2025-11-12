@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Services from "./components/Services";
 import Tours from "./components/Tours";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
