@@ -8,14 +8,18 @@ import "./App.css";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Header />
       <Hero />
-      <About />
-      <Services />
-      <Tours />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/tours" element={<Tours />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 
